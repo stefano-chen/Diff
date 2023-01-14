@@ -10,7 +10,7 @@ class Diff:
             raise ExamException("Ratio cannot be 0")
         self.ratio = ratio
 
-    def compute(self, data: list[int | float]):
+    def compute(self, data):
         if not isinstance(data, list):
             raise ExamException("data must be a list")
         if not all(isinstance(item, int | float) for item in data):
