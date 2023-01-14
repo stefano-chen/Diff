@@ -29,9 +29,8 @@ class MyTestCase(unittest.TestCase):
         x = Diff()
         self.assertEqual(x.compute([2, 4, 8, 16]), [2, 4, 8])
 
-    def test_compute_negative_ratio(self):
-        x = Diff(-1)
-        self.assertEqual(x.compute([2, 4, 8, 16]), [-2, -4, -8])
+    def test_init_negative_ratio(self):
+        self.assertRaises(ExamException, Diff, -1)
 
     def test_compute_double_ratio(self):
         x = Diff(2)

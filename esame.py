@@ -4,16 +4,16 @@ class ExamException(Exception):
 
 class Diff:
     def __init__(self, ratio=1):
-        if not isinstance(ratio, int | float):
+        if not isinstance(ratio, (int, float)):
             raise ExamException("Ratio Type Error")
-        if ratio == 0:
-            raise ExamException("Ratio cannot be 0")
+        if ratio <= 0:
+            raise ExamException("Ratio cannot be less or equal to 0")
         self.ratio = ratio
 
     def compute(self, data):
         if not isinstance(data, list):
             raise ExamException("data must be a list")
-        if not all(isinstance(item, int | float) for item in data):
+        if not all(isinstance(item, (int, float)) for item in data):
             raise ExamException("Not numeric values in data")
         if len(data) < 2:
             raise ExamException("Insufficient number of data")
